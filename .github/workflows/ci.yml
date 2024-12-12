@@ -3,10 +3,10 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - main  # Runs the workflow on push to the main branch
+      - main
   pull_request:
     branches:
-      - main  # Runs the workflow on pull requests to the main branch
+      - main
 
 jobs:
   lint-and-test:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.10
+          python-version: 3.11
 
       - name: Install dependencies
         run: |
