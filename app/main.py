@@ -7,12 +7,13 @@ from PIL import Image
 
 def shrink_image(file_path, shrink_percentage):
     if not (0 < shrink_percentage <= 100):
-        raise ValueError("Shrink percentage must be between 0 and 100.")
+        raise ValueError("Shrink percentage must be between 1 and 100.")
 
     input_path = Path(file_path)
     output_path = input_path.with_name(f"{input_path.stem}.out{input_path.suffix}")
     
     with Image.open(input_path) as img:
+        # TODO: Fix logical percentile error
         max_width = int(img.width * (shrink_percentage / 100))
         max_height = int(img.height * (shrink_percentage / 100))
         max_size = (max_width, max_height)
@@ -32,4 +33,3 @@ def main():
     
 if __name__ == '__main__':
     main()
-
