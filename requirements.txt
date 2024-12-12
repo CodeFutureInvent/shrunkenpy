@@ -1,2 +1,5 @@
 Pillow
 pytest
+black
+isort 
+flake8
